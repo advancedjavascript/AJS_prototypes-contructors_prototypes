@@ -9,10 +9,10 @@ export default function Character(name, type) {
 
 Character.prototype.damage = function damage(points) {
   const damageCounter = points * (1 - this.defence / 100);
-  if ((this.health - damageCounter) > 0) {
-    this.health -= (points * (1 - this.defence / 100));
+  if (this.health > damageCounter) {
+    this.health -= damageCounter;
   } else {
-    return ('You died');
+    this.health = 0;
   }
   return this.health;
 };
